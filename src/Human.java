@@ -1,8 +1,8 @@
 
 
-public abstract class Human extends Pingasmon 
+public abstract class Human extends Pmon
 {
-	private Pingasmon[] party;
+	private Pmon[] party;
 	
 	public Human() 
 	{
@@ -15,14 +15,15 @@ public abstract class Human extends Pingasmon
 	}
 	
 	
-	public static void populateParty(Pingasmon[] party)
+	public static void populateParty(Pmon[] party)
 	{
 		
 	}
 	
-	public Pingasmon sendOut()
+	public Pmon sendOut()
 	{
 		
+		return new Pmon();
 	}
 	
 }
