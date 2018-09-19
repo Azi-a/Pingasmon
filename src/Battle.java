@@ -3,7 +3,7 @@
  */
 
 /**
- * @author euglena
+ * @author Azi-a
  *
  */
 public class Battle {

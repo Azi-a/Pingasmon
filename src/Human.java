@@ -20,7 +20,7 @@ public abstract class Human extends Pingasmon
 		
 	}
 	
-	public Pingasmon sendOut();
+	public Pingasmon sendOut()
 	{
 		
 	}
