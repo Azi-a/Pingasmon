@@ -1,12 +1,14 @@
 
 
-public abstract class Human extends Pmon
+public class Human extends Life   
 {
+	
 	private Pmon[] party;
 	
 	public Human() 
 	{
 		super();
+		
 	}
 
 	public Human(String name, int level, int[] stats, Move[] move)
