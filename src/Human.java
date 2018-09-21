@@ -1,13 +1,13 @@
+//*************************************************************************************************
 
-
-public class Human extends Life   
+public class Human extends Battler  
 {
 	
 	private Pmon[] party;
 	
 	public Human() 
 	{
-		super();
+		
 		
 	}
 
@@ -17,15 +17,12 @@ public class Human extends Life
 	}
 	
 	
+	
 	public static void populateParty(Pmon[] party)
 	{
 		
 	}
 	
-	public Pmon sendOut()
-	{
-		
-		return new Pmon();
-	}
+	
 	
 }
