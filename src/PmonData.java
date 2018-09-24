@@ -16,5 +16,5 @@ public abstract class PmonData
 		return new Pmon();
 	}
 	
-	
+	//TODO make method that creates the core directory, with all main subfolders and directories
 }

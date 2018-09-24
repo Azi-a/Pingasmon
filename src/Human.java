@@ -7,7 +7,7 @@ public class Human extends Battler
 	
 	public Human() 
 	{
-		
+		super();
 		
 	}
 
