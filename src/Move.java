@@ -8,7 +8,11 @@ public class Move
 	int[][] statEffects;
 	
 	
-	public void PopulateStatEffects(int[][] statEffects)
+	/**
+	 * @param statEffects array of status effects in form of [selfhp,selfatk,selfdef,etc. '|' ] [enemyhp,enemyatk,etc.]
+	 * ???????????????????????
+	 */
+	public void PopulateStatEffects(String[][] statEffects)
 	{
 		//Stat effects @ self
 		//stat effects @ enemy
