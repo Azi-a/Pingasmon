@@ -63,10 +63,7 @@ public abstract class Life implements Serializable
 	//TODO use Object writers to efficiently save data
 	public static void save(Life lifeform)
 	{
-		//systemType = System.getProperty("os.name");
-		destination = System.getProperty("user.home");
-	//	target = new Folder
-	// "C:\Users\zayd.moosajee.1
+		
 	
 	}
 	
