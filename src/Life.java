@@ -40,7 +40,7 @@ public abstract class Life implements Serializable
 	 */
 	public Life(String name, String types, int[] base, Move[] moves)
 	{
-		
+		rng.nextInt();
 	}
 	
 	/*
