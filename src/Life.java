@@ -31,8 +31,8 @@ public abstract class Life implements Serializable
 	private static String systemType;
 	
 
-	/*
-	 * Creates a new lifeform, generating predefined RNG values
+	/**
+	 * Creates a new lifeform interactively, generating predefined RNG values
 	 * @param name name of this lifeform
 	 * @param types all types of this lifeform
 	 * @param base base stats of this lifeform
@@ -40,11 +40,14 @@ public abstract class Life implements Serializable
 	 */
 	public Life(String name, String types, int[] base, Move[] moves)
 	{
+		//automatic RNG creation to be used when creating a new Life for debug purposes
+		Scanner scan = new Scanner(System.in);
+		System.out.println();
 		rng.nextInt();
 	}
 	
-	/*
-	 * Creates a new lifeform with predefined RNG values (ivs, nature)
+	/**
+	 * Creates a new lifeform automatically with manually defined RNG values (ivs, nature)
 	 * @param name name of this lifeform
 	 * @param types types of this lifeform, in this format: "type1 type2 type3".
 	 *  'x' indicates no type
@@ -55,15 +58,18 @@ public abstract class Life implements Serializable
 	 */
 	public Life(String name, String types, int[] base, int[] nature, int[] ivs,  Move[] moves)
 	{
-		
+		//manual defining of every value for pinpointing/uploading detailed Life data
 	}
 	
-	//TODO check to make sure core directory exists, throwing an exception if it doesn't
-	//TODO check for lifeform subdirectory, creating it if it doesn't exist(with a user warning)
-	//TODO use Object writers to efficiently save data
+	
+	/**
+	 * @param lifeform
+	 */
 	public static void save(Life lifeform)
 	{
-		
+		//TODO check to make sure core directory exists, throwing an exception if it doesn't
+		//TODO check for lifeform subdirectory, creating it if it doesn't exist(with a user warning)
+		//TODO use Object writers to efficiently save data
 	
 	}
 	

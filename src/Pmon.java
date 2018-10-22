@@ -1,7 +1,11 @@
 
 import java.util.Scanner;
 
-public class Pmon
+/**
+ * @author zayd.moosajee.1
+ *
+ */
+public class Pmon extends (Battler,Life)
 {
 	private String name;
 	private int level;
