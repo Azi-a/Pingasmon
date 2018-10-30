@@ -15,15 +15,17 @@ import java.util.regex.Pattern;
  */
 public class PmonData implements Serializable
 {
+	private static final String PISDCORE  = ("H:\\Pingasmon");
+	private static final String GENCORE = (System.getProperty("user.home") +
+	System.getProperty("file.separator") + "Pingasmon");
 	private static final String sp = System.getProperty("file.separator");
-	private static final String Core = System.getProperty("user.home") + sp + "Pingasmon";
 	private static final String f = null;
 	
 	String destination;
 	private PrintWriter out;
 	private Scanner in;
 	
-	File 
+ 
 	private static Scanner manualIn = new Scanner(System.in);
 	
 	
@@ -46,19 +48,24 @@ public class PmonData implements Serializable
 			// "C:\Users\zayd.moosajee.1
 			return null;
 	}
+	
 	/**
 	 * @return
 	 */
-	public static boolean coreExists()
+	public static File getCoreType()
 	{
+		File PISD = new File(PISDCORE);
+		File winlinux = new File(GENCORE);
 		//check for PISD core
 		if(isPISD())
-			if (new File("H:\\Pingasmon").exists())
-			s
-			return true;
-		//check for generic Windows core
-		if()
-		//check for generic Linux core
+		{
+			if(PISD.exists())
+			return PISD;
+			return null;
+		}	
+		if(winlinux.exists())
+		return winlinux;
+		return null;
 		
 		//who cares about mac
 		
@@ -66,7 +73,7 @@ public class PmonData implements Serializable
 	}
 	
 	
-	private static void createNewCore()
+	private static void createNewCore(String loc)
 	{
 		
 	}
@@ -74,35 +81,40 @@ public class PmonData implements Serializable
 	private static boolean isPISD()
 	{
 		
-		File tester = new File("C: " + sp + "Program Files (x86) " + sp + "Netop" + sp + "Vision" + sp + "lock.bmp");
-		String[] split =System.getProperty("user.name").split(".");
+	//	File tester = new File(GENCORE);
+		String[] split = System.getProperty("user.name").split("[.]");
+	
+		for(String a : split)
+		{
+			System.out.println(a);
+		}
+	
 		
-		for(int x = 0; x < split[0].length(); x++)
+		for(int x = 1; x < split[0].length(); x++)
 		{
 			if(Character.isUpperCase(split[0].charAt(x)))
 				return false;
-		}	
-		if(split[1].charAt(0)!='.')
-				return false;
-		for(int x = 0; x < split[2].length(); x++)
+		}
+		for(int x = 1; x < split[1].length(); x++)
 		{
-			if(Character.isUpperCase(split[2].charAt(x)))
+			if(Character.isUpperCase(split[1].charAt(1)))
 				return false;
 		}	
 		
-		if(!Character.isDigit(split[3].charAt(0)))
+		if(!Character.isDigit(split[2].charAt(0)))
 		return false;
 		
-		if(!tester.exists())
+	/*	if(!tester.exists())
 		{
-		System.out.println("Netop wasn't found, but your username was in PISD format."
-				+ " \n Is this a PISD computer?");
+		System.out.println("PISD Apps weren't found, is this a PISD computer?");
 		if((manualIn.next()).contains("y"))
 		return true;
 		return false;
 		}
+	*/
+		if(new File("H:\\").exists())
 		return true;
-		
+		return false;
 	}
 	
 	
