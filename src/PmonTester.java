@@ -22,13 +22,13 @@ public class PmonTester
 		
 		*/
 		
-		System.out.println(PmonData.coreExists());
+		System.out.println(PmonData.getCoreDirectory());
 		
 		
 		
 		
 		
-	/*	
+	
 	System.out.println(System.getProperty("os.name"));
 	System.out.println(System.getProperty("os.version"));
 	System.out.println(System.getProperty("os.arch"));

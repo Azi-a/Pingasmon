@@ -3,9 +3,11 @@
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -13,21 +15,33 @@ import java.util.regex.Pattern;
  *@author Azi-a 
  *@version 0.0
  */
-public class PmonData implements Serializable
+public class PmonData
 {
 	private static final String PISDCORE  = ("H:\\Pingasmon");
 	private static final String GENCORE = (System.getProperty("user.home") +
 	System.getProperty("file.separator") + "Pingasmon");
-	private static final String sp = System.getProperty("file.separator");
-	private static final String f = null;
+
 	
-	String destination;
-	private PrintWriter out;
-	private Scanner in;
 	
- 
-	private static Scanner manualIn = new Scanner(System.in);
+	private static File core;
+
 	
+	/**
+	 * "tests" the various methods in the class, for the purpose of built in, efficient 
+	 * exception handling.
+	 * 	 * efficiently 
+	 * @param option choice 
+	 */
+	public void psuedoTester(int option)
+	{
+		
+	}
+	
+	
+	
+	
+	
+//	private static Scanner manualIn = new Scanner(System.in);
 	
 	
 	/**
@@ -36,48 +50,59 @@ public class PmonData implements Serializable
 	public static File getCoreDirectory()
 	{
 		
+		checkCore();
 		
-		
-		//set destination to home directory regardless of OS
-			
-			
-		//detect if it is running on a PISD computer(via the format of the username of first.last.#)
-			
-			
-			//	target = new Folder
-			// "C:\Users\zayd.moosajee.1
-			return null;
+		return core;
 	}
+	
+	
+	
+	
 	
 	/**
 	 * @return
+	 * Checks if a core exists, setting the target(the variable core) to the file if it does
 	 */
-	public static File getCoreType()
+	static boolean checkCore()
 	{
+		
 		File PISD = new File(PISDCORE);
 		File winlinux = new File(GENCORE);
 		//check for PISD core
 		if(isPISD())
 		{
 			if(PISD.exists())
-			return PISD;
-			return null;
+			{
+				core = PISD;
+				return true;
+			}
+			return false;
+			
 		}	
 		if(winlinux.exists())
-		return winlinux;
-		return null;
+		{
+			core = winlinux;
+			return true;
+		}
+		return false;
 		
 		//who cares about mac
-		
-		
+
 	}
 	
 	
-	private static void createNewCore(String loc)
+	/**
+	 * @param loc
+	 * @throws FileAlreadyExistsException if the directory already exists, an exception will be thrown.
+	 */
+	public static void createNewCore(String loc) throws FileAlreadyExistsException
 	{
 		
 	}
-	
+	/**
+	 * 
+	 * @return whether the current username is in PISD format
+	 */
 	private static boolean isPISD()
 	{
 		
@@ -118,28 +143,6 @@ public class PmonData implements Serializable
 	}
 	
 	
-	
-	
-	FileInputStream fileIn;
-	ObjectInputStream objIn;
-	
-	
-	/**
-	 * 
-	 */
-	public void save()
-	{
-		
-	}
-	
-	/**
-	 * @return the loaded Object.
-	 */
-	public Object load()
-	{
-		return fileIn;
-		
-	}
 	
 	//TODO make method that creates the core directory, with all main subfolders and directories
 }
