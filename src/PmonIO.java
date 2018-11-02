@@ -32,6 +32,15 @@ public class PmonIO<T> implements Serializable
 	//target File
 	private static File target;
 	
+	/**
+	 * The hashmap which maps every major object in the game to a string location
+	 * <li>
+	 * trainers
+	 * pmon
+	 * core data
+	 * 
+	 * <li>
+	 */
 	private HashMap tracer;
 	
 	
@@ -47,14 +56,53 @@ public class PmonIO<T> implements Serializable
 	
 	
 	/**
-	 * saves the given object T
+	 * saves the given object T, without handling exceptions internally
+	 * Prepare yourself for handling an exceptionpocalypse
+	 * @throws FileNotFoundException do i really need to explain this???
+	 * @throws IOException general exception whichll prob be handled internally anyways
+	 * 
 	 */
-	public void save(T saveMe)
+	public void saveFlex(T saveMe) throws FileNotFoundException,IOException
 	{
 		fileOut = new FileOutputStream("null(?)");
+		
 		objOut = new ObjectOutputStream(fileOut);
+		
 		objOut.writeObject(saveMe);
 	}
+	
+	/**
+	 * saves an object, handling all exceptions internally
+	 * internally handled exceptions means more work for me, but less for you!
+	 * @param saveMe
+	 */
+	public void saveAuto(T saveMe)
+	{
+		try {
+		fileOut = new FileOutputStream("null(?)");
+		
+		objOut = new ObjectOutputStream(fileOut);
+		
+		objOut.writeObject(saveMe);
+			}
+		catch(FileNotFoundException e)
+		{
+			
+		} catch (IOException e) {
+			
+		}
+	}
+	
+	
+	/**
+	 * 
+	 */
+	public File getAddress()
+	{
+		
+	}
+	
+	
 	
 	/**
 	 * @return the loaded Object.
