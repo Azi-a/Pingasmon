@@ -1,0 +1,41 @@
+Will use special kinds of codes(?) when it is applicable.
+
+Maybe 2 different keys will work for a value.
+ex. name of Human is input, and code is input, both should give human object.
+
+
+
+change key to <String[]>?
+yes
+When accessed using a boolean .contains(), tracer will be able to identify what is valid and what isn't.
+It also can return a list of valid keys.
+
+
+						all are optional(maybe)
+Alternate key format- (Type)(Subtype)(Precision modifier)
+>Type
+h = human
+
+>Subtype
+for h
+	t = player
+
+>Precision modifier
+for h
+	t = trainer
+	
+ID for humans is the same as their standard ID--this is what makes this entire system as useful as it is.
+0=Azi's ID
+
+					ex. h p 0 = Azi
+
+
+
+
+
+
+
+
+
+key[]|value
+[Azi,]	|	Humans/Azi/azi.dat

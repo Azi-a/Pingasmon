@@ -1,0 +1,17 @@
+>Localized/universal--game data
+Data
+	Pmon
+		All constant Pmon data(base stats, name, type, etc.)
+	Core
+		Type matchups(array of type matchups)
+		Tracer
+	
+		
+
+
+
+>Confidential/unique(empty file created by pmonIO if nonexistent)--progress/save data
+Humans
+Trainers
+	(trainer.dat)
+		Will have a file indicating whether to make it public or not when being checked

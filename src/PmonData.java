@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
  *@version 0.0
  */
 public class PmonData
-{
+{										// 2 backslashes cuz escape characters			
 	private static final String PISDCORE  = ("H:\\Pingasmon");
 	private static final String GENCORE = (System.getProperty("user.home") +
 	System.getProperty("file.separator") + "Pingasmon");

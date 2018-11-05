@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
+import java.security.KeyException;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
@@ -95,10 +96,16 @@ public class PmonIO<T> implements Serializable
 	
 	
 	/**
-	 * 
+	 * uses the tracer(HashMap) and the key given to produce the respective File
+	 * @param theory the name of the object
+	 * @return File that corellates with the given String
+	 * @throws KeyException
 	 */
-	public File getAddress()
+	public File getAddress(String theory) throws KeyException
 	{
+		
+		
+		return new File("");
 		
 	}
 	
