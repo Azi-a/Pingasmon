@@ -7,12 +7,15 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.security.KeyException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * @author zayd.moosajee.1
+ * @author Azi-a
  *
  * @param <T> the type of the object being loaded/saved
  */
@@ -42,7 +45,7 @@ public class PmonIO<T> implements Serializable
 	 * 
 	 * <li>
 	 */
-	private HashMap tracer;
+	private HashMap<String[],String> tracer;
 	
 	
 	/**
@@ -98,11 +101,31 @@ public class PmonIO<T> implements Serializable
 	/**
 	 * uses the tracer(HashMap) and the key given to produce the respective File
 	 * @param theory the name of the object
+	 * @param theory code of the object--see ???.txt
 	 * @return File that corellates with the given String
-	 * @throws KeyException
+	 * @throws KeyException when the key cannot be found
 	 */
-	public File getAddress(String theory) throws KeyException
-	{
+	public String getAddress(String theory) throws KeyException
+	{	Iterator<String[]> iter;
+		Set arc = tracer.keySet();
+		iter = arc.iterator();
+		while(iter.hasNext())
+		{
+			String[] blarg = iter.next();
+			for(String yhe : blarg)
+			{
+			if(theory.equals(blarg))
+			return tracer.get(blarg);
+			System.out.println(".");
+			
+			
+			
+			}
+			
+		
+		}
+		
+		String conf;
 		
 		
 		return new File("");

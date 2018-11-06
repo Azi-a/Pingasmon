@@ -13,16 +13,16 @@ It also can return a list of valid keys.
 
 						all are optional(maybe)
 Alternate key format- (Type)(Subtype)(Precision modifier)
->Type
-h = human
-
->Subtype
-for h
-	t = player
-
->Precision modifier
-for h
-	t = trainer
+% = universal identifier
+	h = human
+		p = player
+			0 = Azi
+				1 = tux
+			1 = Rufus
+			2 = Phoebus
+			3 = 
+		t = trainer
+		
 	
 ID for humans is the same as their standard ID--this is what makes this entire system as useful as it is.
 0=Azi's ID
@@ -38,4 +38,4 @@ ID for humans is the same as their standard ID--this is what makes this entire s
 
 
 key[]|value
-[Azi,]	|	Humans/Azi/azi.dat
+Azi hp0	|	Humans/Azi/azi.dat
