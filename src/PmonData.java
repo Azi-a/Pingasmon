@@ -11,7 +11,9 @@ import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-/**
+/** The PmonData class manages retreiving and returning locations on the disk, as well as doing tasks
+ * like returning a filepath which the OS can understand.
+ * This class differentiates from PmonIO in that it..should be an inner class(?)
  *@author Azi-a 
  *@version 0.0
  */
