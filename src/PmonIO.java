@@ -1,8 +1,6 @@
 //TODO make a universal PmonObject superclass that is a subclass ofthe Object interface
 	//TODO make a getName method, and a SetName/constructor method 
 
-import ec.spec.ObjectX;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,29 +17,22 @@ import java.util.Scanner;
 import java.util.Set;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
+import ec.spec.arrS;
 /**
- * @author Azi-a
+ * @author Azi_a
  *
  * @param <T> the type of the object being loaded/saved
  */
 public class PmonIO<T> implements Serializable
 {
-	//for specified update checks on the first few lines of an object
-	private static PrintWriter out;
-	private static Scanner in;
 	
-	//loader
-	private static FileInputStream fileIn;
-	private static ObjectInputStream objIn;
+	protected static File core;
+	protected static HashMap<String[],String> tracer;
+	
 	
 	//saver
 	private static FileOutputStream fileOut;
 	private ObjectOutputStream objOut;
-	
-	//target File
-	private static File target;
-	
 	
 	/**
 	 * 
@@ -51,12 +42,11 @@ public class PmonIO<T> implements Serializable
 		super();
 		
 	}
-
-	
 	
 	/**
 	 * saves the given object T, without handling exceptions internally
 	 * Prepare yourself for handling an exceptionpocalypse
+	 * @param saveMe object to save
 	 * @throws FileNotFoundException do i really need to explain this???
 	 * @throws IOException general exception whichll prob be handled internally anyways
 	 * 
@@ -73,7 +63,7 @@ public class PmonIO<T> implements Serializable
 	/**
 	 * saves an object, handling all exceptions internally
 	 * internally handled exceptions means more work for me, but less for you!
-	 * @param saveMe
+	 * @param saveMe object to save
 	 */
 	public void saveAuto(T saveMe)
 	{
@@ -85,11 +75,11 @@ public class PmonIO<T> implements Serializable
 		this.objOut.writeObject(saveMe);
 			}
 		catch(FileNotFoundException e)
+		{			//
+		} 
+		catch (IOException e) 
 		{
-			
-		} catch (IOException e) 
-		{
-			
+			//
 		}
 	}
 	
@@ -109,17 +99,20 @@ public class PmonIO<T> implements Serializable
 	//make a hashtree to point file/object/trainer names to their locations on disk.
 	
 	
-	/** The Tracer class manages the tracer(aka just an ordinary hashmap), loading data and maybe saving it.
-	 * But for now all it does is just get adresses for objects in an efficient way.
-	 * @author zayd.moosajee.1
-	 *
-	 */
+/** The Tracer class manages the tracer(aka just an ordinary hashmap), loading data and maybe saving it.
+ * But for now all it does is just get adresses for objects in an efficient way.
+ * @author zayd.moosajee.1
+ *
+ */
 public static class Tracer
 {
 		private Scanner meme;
-		private HashMap<String[],String> tracer;
-		private static final String tracerFilePath = "H:\\Pingasmon\\Data";
+		
+		private static final String tracerFilePath = "";
 	//	private static final String tracerFilePath = ;
+		
+		
+		
 		
 		
 		/** Tracer "tester" #1--automatic, constructs on the spot, always does getAddress
@@ -129,10 +122,9 @@ public static class Tracer
 		public Tracer(String theory)
 		{
 			File loc = new File(tracerFilePath);
-			this.tracer = new HashMap<>();
+			tracer = new HashMap<>();
 			try {this.meme = new Scanner(loc);} 
 		catch (FileNotFoundException e) {e.printStackTrace();}
-			
 			
 		}
 		
@@ -149,7 +141,7 @@ public static class Tracer
 		public File getAddress(String theory) throws KeyException
 		{	
 			Iterator<String[]> iter;
-			Set<String[]> arc = this.tracer.keySet();
+			Set<String[]> arc = tracer.keySet();
 			
 			iter = arc.iterator();
 			while(iter.hasNext())
@@ -160,7 +152,7 @@ public static class Tracer
 					if(theory.equalsIgnoreCase((blarg[x])))
 					{
 						System.out.println("The address for " +  
-					blarg[0] + " was found: \t" + this.tracer.get(blarg)); 
+					blarg[0] + " was found: \t" + tracer.get(blarg)); 
 						return new File(blarg[x]);
 					}
 				}
@@ -175,36 +167,23 @@ public static class Tracer
 }
 	
 	
-	/** The PmonFiles inner class manages retreiving and returning locations on the disk, as well as doing tasks
-	 * like returning a filepath which the OS can understand.
-	 * This class differentiates from PmonIO in that it handles getting the location of physical files. 
-	 * I mean i guess i could just intergrate it with the PmonIO class. 
-	 * but then it'd be really messy.
-	 *@author Azi-a 
-	 *@version 0.0
-	 */
-private static class PmonFiles
-{										// 2 backslashes cuz escape characters			
+/** The CoreManager inner class manages retreiving and returning locations on the disk, as well as doing tasks
+ * like returning a filepath which the OS can understand.
+ * This class differentiates from PmonIO in that it handles getting the location of physical files. 
+ * I mean i guess i could just intergrate it with the PmonIO class. 
+ * but then it'd be really messy.
+ *@author Azi-a 
+ *@version 0.0
+ */
+public static class CoreManager
+{						
+	
+	
+	// 2 backslashes cuz escape characters			
 		private static final String PISDCORE  = ("H:\\Pingasmon");
 		private static final String GENCORE = (System.getProperty("user.home") +
 		System.getProperty("file.separator") + "Pingasmon");
-
-		
-		
-		private static File core;
-
-		
-		/**
-		 * "tests" the various methods in the class, for the purpose of built in, efficient 
-		 * exception handling.
-		 * 	 * efficiently 
-		 * @param option choice 
-		 */
-		public void psuedoTester(int option)
-		{
-			
-		}
-		
+		protected static boolean pi = false;
 		
 		
 		
@@ -217,19 +196,47 @@ private static class PmonFiles
 		 */
 		public static File getCoreDirectory()
 		{
-			
-			checkCore();
-			
+		
+			if(checkCore())
 			return core;
+			
+			try 
+			{
+				createNewCore(pi);
+			}
+			catch (FileAlreadyExistsException e) 
+			{
+				System.out.print("The core folder already exists. ");
+				final String optinos = "Select an option.\n"
+						+ 	"\t1	|	cancel\n"
+						+ 	"\tn/a	|	overwrite\n"
+						+ 	"\tn/a	|	backup&overwrite";
+				System.out.println();
+				System.out.println();
+				
+				
+				Scanner scan = new Scanner(System.in);
+				while((scan.next())!="1")
+				{
+					System.out.println("Invalid option. Try again.");
+					System.out.println(optinos);
+				}
+				scan.close();
+				
+				
+			}
+			return core;
+				
+			
 		}
 		
 		
 		
 		
 		
-		/**
-		 * @return
-		 * Checks if a core exists, setting the target(the variable core) to the file if it does
+		/** Checks to see if the core exists, initializing it if it does.
+		 * 	Does NOT verify if subfiles exist.
+		 * @return true if core exists, false otherwise
 		 */
 		static boolean checkCore()
 		{
@@ -238,10 +245,12 @@ private static class PmonFiles
 			File winlinux = new File(GENCORE);
 			//check for PISD core
 			if(isPISD())
-			{
+			{	pi=true;
 				if(PISD.exists())
 				{
 					core = PISD;
+					System.out.println("Core found and set to " + PISD);
+					System.out.println(arrS.pr(PISD.listFiles()));
 					return true;
 				}
 				return false;
@@ -249,9 +258,11 @@ private static class PmonFiles
 			}	
 			if(winlinux.exists())
 			{
+				System.out.println("Core found and set to " + winlinux);
 				core = winlinux;
 				return true;
 			}
+			System.out.println("No core was found.");
 			return false;
 			
 			//who cares about mac
@@ -260,12 +271,12 @@ private static class PmonFiles
 		
 		
 		/**
-		 * @param loc
+		 * @param ispisd
 		 * @throws FileAlreadyExistsException if the directory already exists, an exception will be thrown.
 		 */
-		public static void createNewCore(String loc) throws FileAlreadyExistsException
+		private static void createNewCore(boolean ispisd) throws FileAlreadyExistsException
 		{
-			
+			core.mkdirs();
 		}
 		/**
 		 * 
@@ -276,12 +287,6 @@ private static class PmonFiles
 			
 		//	File tester = new File(GENCORE);
 			String[] split = System.getProperty("user.name").split("[.]");
-		
-			for(String a : split)
-			{
-				System.out.println(a);
-			}
-		
 			
 			for(int x = 1; x < split[0].length(); x++)
 			{
@@ -305,8 +310,11 @@ private static class PmonFiles
 			return false;
 			}
 		*/
-			if(new File("H:\\").exists())
+			if(new File("H:\\").exists()) 
+			{
+				System.out.println("PISD computer detected.");
 			return true;
+			}
 			return false;
 		}
 		

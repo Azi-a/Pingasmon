@@ -16,15 +16,13 @@ import java.util.regex.Pattern;
  * This class differentiates from PmonIO in that it..should be an inner class(?)
  *@author Azi-a 
  *@version 0.0
+ *@deprecated its now an inner class in IO, and will be deleted soon.
  */
 public class PmonData
 {										// 2 backslashes cuz escape characters			
 	private static final String PISDCORE  = ("H:\\Pingasmon");
 	private static final String GENCORE = (System.getProperty("user.home") +
 	System.getProperty("file.separator") + "Pingasmon");
-
-	
-	
 	private static File core;
 
 	
@@ -61,9 +59,9 @@ public class PmonData
 	
 	
 	
-	/**
-	 * @return
-	 * Checks if a core exists, setting the target(the variable core) to the file if it does
+	/** Checks to see if the core exists, initializing it if it does.
+	 * @return true if core exists
+	 * @return false otherwise
 	 */
 	static boolean checkCore()
 	{
@@ -76,6 +74,7 @@ public class PmonData
 			if(PISD.exists())
 			{
 				core = PISD;
+				System.out.println("Core was found at " + PISD);
 				return true;
 			}
 			return false;
@@ -83,6 +82,7 @@ public class PmonData
 		}	
 		if(winlinux.exists())
 		{
+			System.out.println("Core was found at " + winlinux);
 			core = winlinux;
 			return true;
 		}

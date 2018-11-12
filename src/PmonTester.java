@@ -1,6 +1,7 @@
 import java.util.Properties;
 import java.util.HashMap;
 import java.util.Map;
+import ec.spec.arrS;
 /**
  * @author zayd.moosajee.1
  *
@@ -22,13 +23,12 @@ public class PmonTester
 		
 		*/
 		
-		System.out.println(PmonData.getCoreDirectory());
+		System.out.println(PmonIO.CoreManager.getCoreDirectory());
+		
+
 		
 		
-		
-		
-		
-	
+	/*
 	System.out.println(System.getProperty("os.name"));
 	System.out.println(System.getProperty("os.version"));
 	System.out.println(System.getProperty("os.arch"));
@@ -38,8 +38,8 @@ public class PmonTester
 	System.out.println(System.getProperty("user.home") + System.getProperty("os.separator"));
 	Properties props = System.getProperties();
 	props.list(System.out);
-	System.getProperties();
 	*/
+	
 	}
 
 }

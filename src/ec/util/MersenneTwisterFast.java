@@ -373,6 +373,9 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable
         }
 
 
+    /**
+     * @return
+     */
     public int nextInt()
         {
         int y;
@@ -410,6 +413,9 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable
 
 
 
+    /**
+     * @return
+     */
     public short nextShort()
         {
         int y;
@@ -447,6 +453,9 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable
 
 
 
+    /**
+     * @return
+     */
     public char nextChar()
         {
         int y;
@@ -483,6 +492,9 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable
         }
 
 
+    /**
+     * @return
+     */
     public boolean nextBoolean()
         {
         int y;
@@ -640,6 +652,9 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable
         }
 
 
+    /**
+     * @return
+     */
     public byte nextByte()
         {
         int y;
@@ -676,6 +691,9 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable
         }
 
 
+    /**
+     * @param bytes
+     */
     public void nextBytes(byte[] bytes)
         {
         int y;
@@ -963,6 +981,9 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable
     public void clearGaussian() { __haveNextNextGaussian = false; }
 
 
+    /**
+     * @return
+     */
     public double nextGaussian()
         {
         if (__haveNextNextGaussian)
