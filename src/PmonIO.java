@@ -10,11 +10,13 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.nio.file.FileAlreadyExistsException;
 import java.security.KeyException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeMap;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import ec.spec.arrS;
@@ -45,7 +47,7 @@ public class PmonIO<T> implements Serializable
 	
 	/**
 	 * saves the given object T, without handling exceptions internally
-	 * Prepare yourself for handling an exceptionpocalypse
+	 * Prepare yourself for handling an exceptionpocalypse(not really)
 	 * @param saveMe object to save
 	 * @throws FileNotFoundException do i really need to explain this???
 	 * @throws IOException general exception whichll prob be handled internally anyways
@@ -75,7 +77,8 @@ public class PmonIO<T> implements Serializable
 		this.objOut.writeObject(saveMe);
 			}
 		catch(FileNotFoundException e)
-		{			//
+		{			
+			
 		} 
 		catch (IOException e) 
 		{
@@ -236,6 +239,7 @@ public static class CoreManager
 		
 		/** Checks to see if the core exists, initializing it if it does.
 		 * 	Does NOT verify if subfiles exist.
+		 * Also initializes the treelist of files
 		 * @return true if core exists, false otherwise
 		 */
 		static boolean checkCore()
@@ -250,7 +254,18 @@ public static class CoreManager
 				{
 					core = PISD;
 					System.out.println("Core found and set to " + PISD);
-					System.out.println(arrS.pr(PISD.listFiles()));
+					TreeMap<String,File> files = new TreeMap<>();				
+					for(int x = 0; x < core.list().length; x++)
+					{
+						String p = core.list()[x];
+						
+						
+					
+						if(!p.contains("."))
+							files.put(p,core.listFiles()[x]);
+					}
+					
+					System.out.println(files.toString());
 					return true;
 				}
 				return false;
@@ -258,10 +273,26 @@ public static class CoreManager
 			}	
 			if(winlinux.exists())
 			{
-				System.out.println("Core found and set to " + winlinux);
 				core = winlinux;
-				return true;
-			}
+				System.out.println("Core found and set to " + winlinux);
+					
+					TreeMap<String,File> files = new TreeMap<>();				
+					for(int x = 0; x < core.list().length; x++)
+					{
+						String p = core.list()[x];
+						
+						
+					
+						if(!p.contains("."))
+							files.put(p,core.listFiles()[x]);
+					}
+					
+					System.out.println(files.toString());
+					return true;
+				
+				
+				
+		}
 			System.out.println("No core was found.");
 			return false;
 			
