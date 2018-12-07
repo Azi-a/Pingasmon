@@ -1,0 +1,41 @@
+Here's where I get serious. The 2nd file ever created in this project folder.
+
+The more or less real beginning of the long and journey to make this game.
+
+
+Anyways, enough gooey sappy stuff.
+
+
+___BETA TESTING____
+Goal: I want to use GIT/any file sharing/uploading service in union with Unity(no pun intended) to provide a replaceable from creator to user level, updateable easily(i am willing and able to code what's needed for that), simple to use(i can easily upload, and another cilent could easily download and apply said updates to the game), and finally something that uses a Git style sharing service, for in case I wanted to collaborate with any fellow Unity game developer(i have one person particularly in mind :) ) for help, and explanation/me learning by example how to use unity itself(I am still very new to the software. All I've made that is more than a single cube falling down to an infinite abyss is a code-deficient but minimally fun physics-wise and playableish substitute for a Video Game Design game I recently made to get used to the destitute basics of Unity[1]. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1]This was a game i only recently 'finished' making. I may include it's source code somewhere in here, but I feel it's pointless bc it's gonna take up space for no good reason. A link will be posted to it later in development, if I feel it is needed to be added.. Something that blows it completely out of the universe(not hard at all trust me lol). More detail may be given later on this game later. In the end, the point i want to get across: I am currently horribly way too deficient with the software to even attempt a portfolio like this...But I'm confident in my vision and the means to get there. I am determined, blahbalhlablh. Hopefully I have something I can call better than that by the time I present this to whomever this portfolio is aimed at(not NEARLY as difficult as I might make this sound. You can't even lose the game for starters. You can't win either.)
+
+Come to think of it I feel a need to explain further, because, hell, one day I really will. But this is a mini explanation i guess. This game, and it's development will be happening uniamiously timewise with my learning unity.
+All the tools i have right now for making this game are as follows
+1) Intense determination and desire, as well as a need to convey the world I've always dreamed of since 7th grade.
+2) A lot of copyrighted resources that I plan on crediting--all of them--in portfolio mode, maybe even by default into the game. I know copyright infringement is wrong, but I want to challenge that rigid mindset. I call fair use. I have no legal backup to do so, but my philosophy is that if it is not a copypaste of the original works, and not a tool used to extort money from a game...something that will never be used for profit with anything copyrighted, but instead a vessel for me to express what I want to, with the infinite and glorious mass of resources that all the other game developers I look up and *draw inspiration from*--like Toby Fox(story,music,characters,underlying themes), Yoko Taro(story, underlying themes, the need to break free from standardized gaming),Quantic Dream(there is a way, even if incredibly difficult, to create a entirely virtual world that represents the true world you want to create, story, story again, underlying themes, that again too, music, UI style and thought placed into it, really all the effort they put in to make a human world concievable in a game--i thought that could never be possible, not ever. But they came so amazingly close and I love that.)
+
+Sorry. I'm going to stop for now, because I am truly hyperfocusing. It's 12:28 AM and I don't want to go too crazily far with all this and burn too much midnight fuel than is safe. I am glad to at least have gotten a good amount of what i wanted to type down locked in. I guess this really is the beginning. And I'm so glad it is.
