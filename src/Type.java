@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 
+/**
+ * @author zayd.moosajee.1
+ *
+ */
 public class Type 
 {
 
@@ -11,7 +15,7 @@ public class Type
 //first dimension is defending type, second is attacking
 
 	
-	/*
+	/**
 	 * Determines how effective a move will be against another Pmon
 	 */
 	public double getTypeMatchup(String attacking, String[] defending)

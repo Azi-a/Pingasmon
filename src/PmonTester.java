@@ -6,9 +6,34 @@ import ec.spec.arrS;
  * @author zayd.moosajee.1
  *
  */
-public class PmonTester 
+public class PmonTester extends Life
 {
 
+	public PmonTester() 
+	{
+		super(name);
+		
+	}
+
+	
+	String createNewLife;
+	{
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * @param args
 	 */
@@ -23,11 +48,11 @@ public class PmonTester
 		
 		*/
 		
-		System.out.println(PmonIO.CoreManager.getCoreDirectory());
+//		System.out.println(PmonIO.CoreManager.getCoreDirectory());
 		
-
+		Life azi = new Life("Azi");
 		
-		
+		azi.toString();
 	/*
 	System.out.println(System.getProperty("os.name"));
 	System.out.println(System.getProperty("os.version"));
