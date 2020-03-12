@@ -1,4 +1,0 @@
-A unique and special function/mode/way to play the game that offers and prints onscreen during gameplay many many elements and aspects, you could say equivalent to commentary on a movie that a college or employer would find useful to know. In this folder, there are several entries that won't be used to print statements in game. They are just there to read so said people will know how passionate I am about a career in game design. To add additional context to the standard Portfolio Mode.
-
-
-One reason I really like this is that it's unique. The core of what a video game should be to be sucessful. 
