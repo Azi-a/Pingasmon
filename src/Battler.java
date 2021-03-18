@@ -1,7 +1,7 @@
 
 public class Battler
 {
-	
+	//snoopingas
 	int[] stats = new int[6];
 	double currhp;
 	
